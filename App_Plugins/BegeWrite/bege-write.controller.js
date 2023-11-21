@@ -232,7 +232,6 @@ angular.module('umbraco').controller('BegeWriteController', function ($scope, ed
       quote: Quote,
       code: CodeTool,
       raw: RawTool,
-      simpleImage: SimpleImage,
       list: List,
       checklist: Checklist,
       link: UmbracoLinkTool // override link with Umbraco link picker
