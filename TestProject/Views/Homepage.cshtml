@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Homepage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+<h1>@Model.Name</h1>
+<p><b>Version:</b> @Model.Content.Version</p>
+<p><b>Last Modified:</b> @Model.Content.LastModified</p>
+
+@await Html.PartialAsync("~/views/BegeWrite/blocks.cshtml", Model.Content)
