@@ -67,4 +67,8 @@
     <PackageReference Include="Umbraco.Cms.Core" Version="13.3.2" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy App_Plugins ..\TestProject\App_Plugins\ /E&#xD;&#xA;xcopy Views\BegeWrite ..\TestProject\Views\BegeWrite\ /E" />
+  </Target>
+
 </Project>
