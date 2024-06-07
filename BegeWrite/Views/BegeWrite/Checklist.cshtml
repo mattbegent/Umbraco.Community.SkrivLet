@@ -1,7 +1,7 @@
 ﻿@model BegeWrite.BegeWriteBlock<BegeWrite.Converters.CheckListBlockData>
-<ul>
+<ul class="bw-list">
 	@foreach (var item in Model.Data.Items)
 	{
-		<li>@Html.Raw(item.Text) (@item.Checked)</li>
+		<li class="bw-list__item">@Html.Raw(item.Text) (@item.Checked)</li>
 	}
 </ul>

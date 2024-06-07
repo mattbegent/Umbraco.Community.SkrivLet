@@ -1,19 +1,19 @@
 ﻿@model BegeWrite.BegeWriteBlock<BegeWrite.Converters.ListBlockData>
 @if (Model.Data.Style == "ordered")
 {
-	<ol>
+	<ol class="bw-list">
 		@foreach (var item in Model.Data.Items)
 		{
-			<li>@Html.Raw(item)</li>
+			<li class="bw-list__item">@Html.Raw(item)</li>
 		}
 	</ol>
 }
 else
 {
-	<ul>
+	<ul class="bw-list">
 		@foreach (var item in Model.Data.Items)
 		{
-			<li>@Html.Raw(item)</li>
+			<li class="bw-list__item">@Html.Raw(item)</li>
 		}
 	</ul>
 }
