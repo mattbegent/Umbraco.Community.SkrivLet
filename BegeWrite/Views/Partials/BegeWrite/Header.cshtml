@@ -1,22 +1,22 @@
-﻿@model BegeWrite.BegeWriteBlock<BegeWrite.Converters.HeaderBlockData>
+@model BegeWrite.BegeWriteBlock<BegeWrite.Converters.HeaderBlockData>
 @switch (Model.Data.Level)
 {
 	case 1:
-		<h1 class="bw-header__h1">@Html.Raw(Model.Data.Text)</h1>
+		<h1 class="bw-heading bw-heading__h1">@Html.Raw(Model.Data.Text)</h1>
 		break;
 	case 2:
-		<h2 class="bw-header__h2">@Html.Raw(Model.Data.Text)</h2>
+		<h2 class="bw-heading bw-heading__h2">@Html.Raw(Model.Data.Text)</h2>
 		break;
 	case 3:
-		<h3 class="bw-header__h3">@Html.Raw(Model.Data.Text)</h3>
+		<h3 class="bw-heading bw-heading__h3">@Html.Raw(Model.Data.Text)</h3>
 		break;
 	case 4:
-		<h4 class="bw-header__h4">@Html.Raw(Model.Data.Text)</h4>
+		<h4 class="bw-heading bw-heading__h4">@Html.Raw(Model.Data.Text)</h4>
 		break;
 	case 5:
-		<h5 class="bw-header__h5">@Html.Raw(Model.Data.Text)</h5>
+		<h5 class="bw-heading bw-heading__h5">@Html.Raw(Model.Data.Text)</h5>
 		break;
 	case 6:
-		<h6 class="bw-header__h6">@Html.Raw(Model.Data.Text)</h6>
+		<h6 class="bw-heading bw-heading__h6">@Html.Raw(Model.Data.Text)</h6>
 		break;
 }
