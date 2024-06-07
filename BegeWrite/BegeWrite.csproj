@@ -1,14 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
-  </PropertyGroup>
-
- <!-- NuGet package metadata -->
+    <!-- NuGet package metadata -->
     <PropertyGroup>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Product>Umbraco.Community.BegeWrite</Product>
@@ -29,72 +28,18 @@
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
+  
 
-  <ItemGroup>
-    <Compile Remove="Views\MacroPartials\**" />
-    <EmbeddedResource Remove="Views\MacroPartials\**" />
-    <None Remove="Views\MacroPartials\**" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Umbraco.Cms.Core" Version="13.3.2" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Views\BegeWrite\Blocks.cshtml" />
-    <None Remove="Views\BegeWrite\Checklist.cshtml" />
-    <None Remove="Views\BegeWrite\Code.cshtml" />
-    <None Remove="Views\BegeWrite\Header.cshtml" />
-    <None Remove="Views\BegeWrite\Image.cshtml" />
-    <None Remove="Views\BegeWrite\List.cshtml" />
-    <None Remove="Views\BegeWrite\Paragraph.cshtml" />
-    <None Remove="Views\BegeWrite\Quote.cshtml" />
-    <None Remove="Views\BegeWrite\Raw.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Views\BegeWrite\Blocks.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\Checklist.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\Code.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\Header.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\Image.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\List.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\Paragraph.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\Quote.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\BegeWrite\Raw.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-    <PackageReference Include="Umbraco.Cms.Core" Version="13.3.2" />
-  </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy App_Plugins ..\TestProject\App_Plugins\ /E&#xD;&#xA;xcopy Views\BegeWrite ..\TestProject\Views\BegeWrite\ /E" />
-  </Target>
+    <!--
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="xcopy App_Plugins ..\TestProject\App_Plugins\ /E&#xD;&#xA;xcopy Views\BegeWrite ..\TestProject\Views\BegeWrite\ /E" />
+    </Target>-->
 
 </Project>

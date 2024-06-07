@@ -7,7 +7,7 @@ namespace BegeWrite
     {
         public static async Task<IHtmlContent> RenderBegeWrite(this IHtmlHelper html, BegeWriteModel model)
         {
-            return await html.PartialAsync("~/Views/BegeWrite/Blocks.cshtml", model);
+            return await html.PartialAsync("~/Views/Partials/BegeWrite/Blocks.cshtml", model);
         }
     }
 }
