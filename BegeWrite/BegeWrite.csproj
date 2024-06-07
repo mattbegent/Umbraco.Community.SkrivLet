@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+    </PropertyGroup>
+
+    <!-- NuGet package metadata -->
+    <PropertyGroup>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <Product>Umbraco.Community.BegeWrite</Product>
+        <Title>EditorJS editor for Umbraco</Title>
+        <Description>BegeWrite, an EditorJS datatype for Umbraco.</Description>
+        <Version>5.1.0-develop</Version>
+        <Authors>Matt Begent, Steve Temple</Authors>
+        <Company>Matt Begent, Steve Temple</Company>
+        <Copyright>$([System.DateTime]::Now.Year) © $(Company)</Copyright>
+        <PackageId>Umbraco.Community.BegeWrite</PackageId>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/mattbegent/bege-write</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>umbraco umbraco-marketplace</PackageTags>
+        <RepositoryUrl>https://github.com/mattbegent/bege-write</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+  
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Umbraco.Cms.Core" Version="13.3.2" />
+    </ItemGroup>
+
+    <!--
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="xcopy App_Plugins ..\TestProject\App_Plugins\ /E&#xD;&#xA;xcopy Views\BegeWrite ..\TestProject\Views\BegeWrite\ /E" />
+    </Target>-->
+
+</Project>

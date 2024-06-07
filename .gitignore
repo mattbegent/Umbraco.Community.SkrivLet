@@ -128,3 +128,17 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+.DS_Store
+.vs
+*.suo
+*.user
+*.userprefs
+*.cache
+*.log
+*.orig
+_ReSharper.*
+[Bb]in/
+[Oo]bj/
+Thumbs.db

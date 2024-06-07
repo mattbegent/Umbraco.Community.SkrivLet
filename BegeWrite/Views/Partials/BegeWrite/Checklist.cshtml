@@ -1,0 +1,17 @@
+@model BegeWrite.BegeWriteBlock<BegeWrite.Converters.CheckListBlockData>
+<ul class="bw-list">
+	@foreach (var item in Model.Data.Items)
+	{
+		<li class="bw-list__item bw-list__item--check-item">
+			<span class="bw-check">
+				@if (@item.Checked) {
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="bw-check__icon"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7 12L10.4884 15.8372C10.5677 15.9245 10.705 15.9245 10.7844 15.8372L17 9"></path></svg>
+				}	
+			</span>
+			<span class="bw-check__text @(item.Checked ? "bw-check__text--checked" : "")">
+				@Html.Raw(item.Text)
+			</span>
+
+		</li>
+	}
+</ul>
