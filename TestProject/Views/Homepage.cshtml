@@ -1,5 +1,6 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Homepage>
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Homepage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using BegeWrite
 @{
 	Layout = null;
 }
@@ -7,4 +8,4 @@
 <p><b>Version:</b> @Model.Content.Version</p>
 <p><b>Last Modified:</b> @Model.Content.LastModified</p>
 
-@await Html.PartialAsync("~/views/BegeWrite/blocks.cshtml", Model.Content)
+@await Html.RenderBegeWrite(Model.Content)
