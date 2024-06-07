@@ -16,11 +16,10 @@ angular.module('umbraco').controller('BegeWriteController', function ($scope, ed
       this.button.classList.toggle(this.api.styles.inlineToolButtonActive, state);
     }
 
-    // TODO: href are being removed!!!!!!!
     static get sanitize() {
       return {
         a: {
-          class: 'cdx-link'
+          href: true
         }
       };
     }
@@ -136,7 +135,7 @@ angular.module('umbraco').controller('BegeWriteController', function ($scope, ed
       this.input = document.createElement('input');
       this.input.setAttribute('type', 'hidden');
       this.wrapper.classList.add('simple-image');
-    
+
       this._createImage(this.data.url);
 
       this.button = document.createElement('button');
@@ -178,7 +177,7 @@ angular.module('umbraco').controller('BegeWriteController', function ($scope, ed
             setTimeout(()=> {
               this.image.scrollIntoView();
             }, 200);
-            
+
           },
           close: () => {
             editorService.close();
@@ -239,7 +238,7 @@ angular.module('umbraco').controller('BegeWriteController', function ($scope, ed
 
     onChange: (api, event) => {
       editor.save().then((outputData) => {
-        $scope.model.value = JSON.stringify(outputData);        
+        $scope.model.value = JSON.stringify(outputData);
       }).catch((error) => {
         console.log('Saving failed: ', error)
       });
