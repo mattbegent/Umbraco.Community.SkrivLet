@@ -4,6 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Title>BegeWrite</Title>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>An implementation of EditorJS for Umbraco</Description>
+    <PackageTags>umbraco</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
