@@ -13,12 +13,11 @@
         <Product>Umbraco.Community.BegeWrite</Product>
         <Title>EditorJS editor for Umbraco</Title>
         <Description>BegeWrite, an EditorJS datatype for Umbraco.</Description>
-        <Version>5.1.0-develop</Version>
+        <Version>0.1.5</Version>
         <Authors>Matt Begent, Steve Temple</Authors>
         <Company>Matt Begent, Steve Temple</Company>
         <Copyright>$([System.DateTime]::Now.Year) © $(Company)</Copyright>
         <PackageId>Umbraco.Community.BegeWrite</PackageId>
-        <PackageIcon>icon.png</PackageIcon>
         <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/mattbegent/bege-write</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
