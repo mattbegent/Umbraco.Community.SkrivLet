@@ -1,9 +1,0 @@
-﻿@model BegeWrite.BegeWriteModel;
-<article>
-@foreach (var block in Model.Blocks)
-{
-	<div id="@block.Id">
-		@await Html.PartialAsync($"~/views/begeWrite/{block.Type}.cshtml", block)
-	</div>
-}
-</article>
