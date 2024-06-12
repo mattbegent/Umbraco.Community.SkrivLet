@@ -20,7 +20,6 @@
         <PackageId>Umbraco.Community.BegeWrite</PackageId>
         <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/mattbegent/bege-write</PackageProjectUrl>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>umbraco umbraco-marketplace</PackageTags>
         <RepositoryUrl>https://github.com/mattbegent/bege-write</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -29,9 +28,6 @@
     </PropertyGroup>
     <ItemGroup>
       <None Remove="readme.md" />
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="README.md" />
     </ItemGroup>
   
 
