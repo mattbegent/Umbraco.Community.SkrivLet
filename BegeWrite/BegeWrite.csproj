@@ -27,6 +27,12 @@
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
+    <ItemGroup>
+      <None Remove="readme.md" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="README.md" />
+    </ItemGroup>
   
 
     <ItemGroup>
