@@ -35,11 +35,16 @@ namespace Umbraco.Community.SkrivLet.Converters
                 {
                     case "text":
                         reader.Read();
-                        block.Data = new ParagraphBlockData { Text = reader.GetString() ?? "" };
+                        block.Data = new ParagraphBlockData { Text = ConvertUrls(reader.GetString() ?? "") };
                         break;
                 }
             }
             return block;
+        }
+
+        private string ConvertUrls()
+        {
+
         }
     }
 

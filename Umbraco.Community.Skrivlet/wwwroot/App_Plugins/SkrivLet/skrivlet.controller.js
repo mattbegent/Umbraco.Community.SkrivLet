@@ -84,8 +84,14 @@ angular.module('umbraco').controller('BegeWriteController', function ($scope, ed
       editorService.linkPicker({
         multiPicker: false,
         submit: (result) => {
-          editorService.close();
-          this.wrap(range, result.target.url);
+            editorService.close();
+            console.log(result.target);
+            if (result.target.udi) {
+                this.wrap(range, result.target.udi);
+            } else {
+                this.wrap(range, result.target.url);
+            }
+          
         },
         close: () => {
           editorService.close();

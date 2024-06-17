@@ -1,0 +1,23 @@
+{
+    "propertyEditors": [
+        {
+            "alias": "skrivLet",
+            "name": "SkrivLet", 
+            "icon": "icon-notepad",
+            "group": "Rich Content",
+            "editor": {
+                "view": "~/App_Plugins/SkrivLet/skrivlet.html",
+                "supportsReadOnly": true,
+                "hideLabel": true,
+                "valueType": "JSON"
+            }
+        }
+    ],
+    "css": [
+        "~/App_Plugins/SkrivLet/skrivlet.css"
+    ],
+    "javascript": [
+        "~/App_Plugins/SkrivLet/editorjs-all.js",
+        "~/App_Plugins/SkrivLet/skrivlet.controller.js"
+    ]
+}
