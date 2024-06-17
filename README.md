@@ -1,10 +1,10 @@
-# Begewrite
+# SkrivLet
 
 A clean WYSIWYG property editor for distraction free writing in Umbraco.
 
 ## Demo
 
-![Begewrite Demo](https://raw.githubusercontent.com/mattbegent/bege-write/main/images/begewrite.gif)
+![SkrivLet Demo](https://raw.githubusercontent.com/mattbegent/bege-write/main/images/begewrite.gif)
 
 ## Installation 
 
@@ -12,9 +12,9 @@ Documentation coming soon...
 
 ## Styling
 
-Begewrite comes with some basic default clean styling, however it's easy to override these styles if you wish.
+SkrivLet comes with some basic default clean styling, however it's easy to override these styles if you wish.
 
-Each Begewrite element has classes applied to them with a prefix of `bw`.
+Each SkrivLet element has classes applied to them with a prefix of `bw`.
 
 Here are the CSS variables used and their defaults:
 

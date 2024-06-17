@@ -55,6 +55,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("content")]
-		public virtual global::BegeWrite.BegeWriteModel Content => this.Value<global::BegeWrite.BegeWriteModel>(_publishedValueFallback, "content");
+		public virtual global::Umbraco.Community.SkrivLet.SkrivLetModel Content => this.Value<global::Umbraco.Community.SkrivLet.SkrivLetModel>(_publishedValueFallback, "content");
 	}
 }
