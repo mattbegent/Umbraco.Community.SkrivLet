@@ -1,19 +1,19 @@
 @model Umbraco.Community.SkrivLet.SkrivLetBlock<Umbraco.Community.SkrivLet.Converters.ListBlockData>
 @if (Model.Data.Style == "ordered")
 {
-	<ol class="bw-list">
+	<ol class="sl-list">
 		@foreach (var item in Model.Data.Items)
 		{
-			<li class="bw-list__item">@Html.Raw(item)</li>
+			<li class="sl-list__item">@Html.Raw(item)</li>
 		}
 	</ol>
 }
 else
 {
-	<ul class="bw-list">
+	<ul class="sl-list">
 		@foreach (var item in Model.Data.Items)
 		{
-			<li class="bw-list__item">@Html.Raw(item)</li>
+			<li class="sl-list__item">@Html.Raw(item)</li>
 		}
 	</ul>
 }

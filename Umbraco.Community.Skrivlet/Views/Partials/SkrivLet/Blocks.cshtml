@@ -5,72 +5,72 @@
 @* TODO: Move to a seperate file *@
 
 <style>
-	.bw-article {
+	.sl-article {
         margin: 0 auto;
-        max-width: var(--bw-article-max-width, 800px);
+        max-width: var(--sl-article-max-width, 800px);
 		padding: 1.25rem;
-		font-family: var(--bw-base-font-family, Georgia, 'Times New Roman', Times, serif);
+		font-family: var(--sl-base-font-family, Georgia, 'Times New Roman', Times, serif);
         line-height: 1.5;
 		font-size: 1.25rem;
-		color: var(--bw-base-color, #242424);
+		color: var(--sl-base-color, #242424);
     }
 
-    .bw-article a {
-        color: var(--bw-link-color, #006fc6);
+    .sl-article a {
+        color: var(--sl-link-color, #006fc6);
         text-decoration: underline;
     }
 
-    .bw-article a:hover,
-    .bw-article a:focus {
-        color: var(--bw-link-color-hover, #5c5367);
+    .sl-article a:hover,
+    .sl-article a:focus {
+        color: var(--sl-link-color-hover, #5c5367);
         text-decoration: underline;
     }
 
-	.bw-heading {
-		font-family: var(--bw-heading-font-family, "Helvetica Neue", Helvetica, Arial, sans-serif);
-		font-weight: var(--bw-heading-font-weight, bold);
+	.sl-heading {
+		font-family: var(--sl-heading-font-family, "Helvetica Neue", Helvetica, Arial, sans-serif);
+		font-weight: var(--sl-heading-font-weight, bold);
 		margin: 0 0 1.25rem 0;
 	}
 
-	.bw-image {
+	.sl-image {
 		display: block;
 		max-width: 100%;
 		height: auto;
 		margin: 0 0 1.25rem 0;
 	}
 
-	.bw-quote {
-		box-shadow: inset 3px 0 0 0 var(--bw-quote-border-color,#242424);
-		font-family: var(--bw-quote-font-family, Georgia, 'Times New Roman', Times, serif);
-		font-style: var(--bw-quote-font-style, italic);
+	.sl-quote {
+		box-shadow: inset 3px 0 0 0 var(--sl-quote-border-color,#242424);
+		font-family: var(--sl-quote-font-family, Georgia, 'Times New Roman', Times, serif);
+		font-style: var(--sl-quote-font-style, italic);
 		margin: 0 0 1.25rem 2.5rem;
 		padding-left: 1.25rem;
 	}
 
-	.bw-text {
+	.sl-text {
 		margin: 0 0 1.25rem 0;
 	}
 
 
-	.bw-list {
+	.sl-list {
 		margin: 0 0 1.25rem 0;
 	}
 
-	.bw-list__item {
+	.sl-list__item {
 		margin: 0 0 0.625rem 0;
 	}
 
-	.bw-list__item:last-child {
+	.sl-list__item:last-child {
 		margin: 0;
 	}
 
-	.bw-code {
+	.sl-code {
 		display: block;
-		background-color: var(--bw-code-background-color, #f1f1f1);
-		border-left: 3px solid var(--bw-code-border-color, #242424);
+		background-color: var(--sl-code-background-color, #f1f1f1);
+		border-left: 3px solid var(--sl-code-border-color, #242424);
 		white-space: pre-wrap;
 		page-break-inside: avoid;
-		font-family: var(--bw-code-font-family, ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace);
+		font-family: var(--sl-code-font-family, ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace);
 		font-size: 1rem;
 		line-height: 1.5;
 		max-width: 100%;
@@ -80,7 +80,7 @@
 		tab-width: 4;
 	}
 
-	.bw-check {
+	.sl-check {
 		display: inline-block;
 		vertical-align: middle;
 		position: relative;
@@ -89,10 +89,10 @@
 		margin: -2px 0 0 0;
 		box-sizing: border-box;
 		border-radius: 5px;
-		border: 1px solid var(--bw-check-border-color, #C9C9C9);
+		border: 1px solid var(--sl-check-border-color, #C9C9C9);
 	}
 
-	.bw-check__icon {
+	.sl-check__icon {
 		height: 20px;
 		width: 20px;
 		position: absolute;
@@ -101,16 +101,16 @@
 		max-height: 20px;
 	}
 
-	.bw-check__text--checked {
+	.sl-check__text--checked {
 		text-decoration: line-through;
 	}
 
 </style>
 
-<article class="bw-article">
+<article class="sl-article">
 @foreach (var block in Model.Blocks)
 {
-	<div id="@block.Id" class="bw-block">
+	<div id="@block.Id" class="sl-block">
 		@await Html.PartialAsync($"~/views/partials/SkrivLet/{block.Type}.cshtml", block)
 	</div>
 }
