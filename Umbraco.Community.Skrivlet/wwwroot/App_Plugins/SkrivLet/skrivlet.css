@@ -1,8 +1,8 @@
-.bege-write {
+.skriv-let {
     background-color: white;
 }
 
-.bege-write .cdx-search-field__input {
+.skriv-let.cdx-search-field__input {
     width: auto;
 }
 
@@ -11,7 +11,7 @@
         max-width: 800px;
     }
 
-    .bege-write-data {
+    .skriv-let-data {
         margin: 0 auto;
         max-width: 800px;
     }
@@ -19,7 +19,7 @@
 /* .ce-block__content {
     margin: 0;
 } */
-/* 
+/*
 .ce-toolbar__content {
     max-width: none;
 } */

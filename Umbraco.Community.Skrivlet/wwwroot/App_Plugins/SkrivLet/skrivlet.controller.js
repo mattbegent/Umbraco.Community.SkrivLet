@@ -1,4 +1,4 @@
-angular.module('umbraco').controller('BegeWriteController', function ($scope, editorService) {
+angular.module('umbraco').controller('SkrivLetController', function ($scope, editorService) {
 
   class UmbracoLinkTool {
 
@@ -91,7 +91,7 @@ angular.module('umbraco').controller('BegeWriteController', function ($scope, ed
             } else {
                 this.wrap(range, result.target.url);
             }
-          
+
         },
         close: () => {
           editorService.close();

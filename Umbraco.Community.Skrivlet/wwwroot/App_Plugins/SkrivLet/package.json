@@ -1,8 +1,8 @@
 {
-  "name": "begewrite",
+  "name": "skriv-let",
   "version": "1.0.0",
   "description": "",
-  "main": "bege.controller.js",
+  "main": "skrivlet.controller.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild editorjs-bundle.js --bundle --outfile=editorjs-all.js"

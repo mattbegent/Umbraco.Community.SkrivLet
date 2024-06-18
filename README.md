@@ -4,7 +4,7 @@ A clean WYSIWYG property editor for distraction free writing in Umbraco.
 
 ## Demo
 
-![SkrivLet Demo](https://raw.githubusercontent.com/mattbegent/bege-write/main/images/begewrite.gif)
+![SkrivLet Demo](https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skriv-let.gif)
 
 ## Installation 
 
