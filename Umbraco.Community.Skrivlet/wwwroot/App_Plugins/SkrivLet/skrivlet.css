@@ -1,20 +1,20 @@
-.bege-write {
+.skrivlet {
     background-color: white;
 }
 
-.bege-write .cdx-search-field__input {
-    width: auto;
-}
+.skrivlet .cdx-search-field__input {
+        width: auto;
+    }
 
 .ce-block__content,
-    .ce-toolbar__content {
-        max-width: 800px;
-    }
+.ce-toolbar__content {
+    max-width: 800px;
+}
 
-    .bege-write-data {
-        margin: 0 auto;
-        max-width: 800px;
-    }
+.skrivlet-data {
+    margin: 0 auto;
+    max-width: 800px;
+}
 
 /* .ce-block__content {
     margin: 0;

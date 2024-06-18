@@ -10,18 +10,18 @@
     <!-- NuGet package metadata -->
     <PropertyGroup>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <Product>Umbraco.Community.BegeWrite</Product>
+        <Product>Umbraco.Community.SkrivLet</Product>
         <Title>EditorJS editor for Umbraco</Title>
-        <Description>BegeWrite, an EditorJS datatype for Umbraco.</Description>
+        <Description>SkrivLet, an EditorJS datatype for Umbraco.</Description>
         <Version>0.1.5</Version>
         <Authors>Matt Begent, Steve Temple</Authors>
         <Company>Matt Begent, Steve Temple</Company>
         <Copyright>$([System.DateTime]::Now.Year) © $(Company)</Copyright>
-        <PackageId>Umbraco.Community.BegeWrite</PackageId>
+        <PackageId>Umbraco.Community.SkrivLet</PackageId>
         <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/mattbegent/bege-write</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/mattbegent/Umbraco.Community.SkrivLet</PackageProjectUrl>
         <PackageTags>umbraco umbraco-marketplace</PackageTags>
-        <RepositoryUrl>https://github.com/mattbegent/bege-write</RepositoryUrl>
+        <RepositoryUrl>https://github.com/mattbegent/Umbraco.Community.SkrivLet</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -33,9 +33,9 @@
   
 
     <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-        <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Umbraco.Cms.Core" Version="13.3.2" />
     </ItemGroup>
 
