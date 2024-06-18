@@ -6,25 +6,25 @@
 
 <style>
 	.sl-article {
-		margin: 0 auto;
-		max-width: var(--sl-article-max-width, 800px);
+        margin: 0 auto;
+        max-width: var(--sl-article-max-width, 800px);
 		padding: 1.25rem;
 		font-family: var(--sl-base-font-family, Georgia, 'Times New Roman', Times, serif);
-		line-height: 1.5;
+        line-height: 1.5;
 		font-size: 1.25rem;
 		color: var(--sl-base-color, #242424);
-	}
+    }
 
-	.sl-article a {
-	    color: var(--sl-link-color, #006fc6);
-		text-decoration: underline;
-	}
+    .sl-article a {
+        color: var(--sl-link-color, #006fc6);
+        text-decoration: underline;
+    }
 
-	.sl-article a:hover,
-	.sl-article a:focus {
-		color: var(--sl-link-color-hover, #5c5367);
-		text-decoration: underline;
-	}
+    .sl-article a:hover,
+    .sl-article a:focus {
+        color: var(--sl-link-color-hover, #5c5367);
+        text-decoration: underline;
+    }
 
 	.sl-heading {
 		font-family: var(--sl-heading-font-family, "Helvetica Neue", Helvetica, Arial, sans-serif);
@@ -50,7 +50,8 @@
 	.sl-text {
 		margin: 0 0 1.25rem 0;
 	}
-	
+
+
 	.sl-list {
 		margin: 0 0 1.25rem 0;
 	}
@@ -107,10 +108,10 @@
 </style>
 
 <article class="sl-article">
-	@foreach (var block in Model.Blocks)
-	{
-		<div id="@block.Id" class="sl-block">
-			@await Html.PartialAsync($"~/views/partials/SkrivLet/{block.Type}.cshtml", block)
-		</div>
-	}
+@foreach (var block in Model.Blocks)
+{
+	<div id="@block.Id" class="sl-block">
+		@await Html.PartialAsync($"~/views/partials/SkrivLet/{block.Type}.cshtml", block)
+	</div>
+}
 </article>
