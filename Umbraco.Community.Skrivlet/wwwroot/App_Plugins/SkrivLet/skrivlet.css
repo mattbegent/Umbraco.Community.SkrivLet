@@ -1,25 +1,25 @@
-.skrivlet {
+.skriv-let {
     background-color: white;
 }
 
-.skrivlet .cdx-search-field__input {
-        width: auto;
-    }
+.skriv-let.cdx-search-field__input {
+    width: auto;
+}
 
 .ce-block__content,
 .ce-toolbar__content {
     max-width: 800px;
 }
 
-.skrivlet-data {
-    margin: 0 auto;
-    max-width: 800px;
-}
+    .skriv-let-data {
+        margin: 0 auto;
+        max-width: 800px;
+    }
 
 /* .ce-block__content {
     margin: 0;
 } */
-/* 
+/*
 .ce-toolbar__content {
     max-width: none;
 } */

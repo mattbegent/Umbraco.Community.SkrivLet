@@ -91,7 +91,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             } else {
                 this.wrap(range, result.target.url);
             }
-          
+
         },
         close: () => {
           editorService.close();
