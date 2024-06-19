@@ -11,6 +11,10 @@
     max-width: 800px;
 }
 
+.ce-popover {
+    width: auto !important;
+}
+
     .skriv-let-data {
         margin: 0 auto;
         max-width: 800px;

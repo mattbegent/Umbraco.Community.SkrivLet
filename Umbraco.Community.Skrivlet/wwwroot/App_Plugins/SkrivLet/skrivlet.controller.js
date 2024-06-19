@@ -216,7 +216,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
     holder: 'editorjs',
 
-    placeholder: 'Type here and write something super!',
+    placeholder: "Type '/' to insert a block or just start typing something super...",
 
     data: $scope.model.value ? $scope.model.value : {},
 
@@ -228,18 +228,18 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
     },
 
     tools: {
-      embed: {
-        class: Embed,
-        inlineToolbar: true
-      },
-      header: Header,
-      image: UmbracoImageTool,
-      quote: Quote,
-      code: CodeTool,
-      raw: RawTool,
-      list: List,
-      checklist: Checklist,
-      link: UmbracoLinkTool // override link with Umbraco link picker
+        embed: {
+            class: Embed,
+            inlineToolbar: true
+        },
+        header: Header,
+        image: UmbracoImageTool,
+        quote: Quote,
+        code: CodeTool,
+        raw: RawTool,
+        list: List,
+        checklist: Checklist,
+        link: UmbracoLinkTool // override link with Umbraco link picker
     },
 
     onChange: (api, event) => {
