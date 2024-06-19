@@ -14,11 +14,15 @@ Documentation coming soon...
 
 ## Styling
 
-SkrivLet comes with some basic default clean styling, however it's easy to override these styles if you wish.
+SkrivLet is designed to integrate within your existing website styles.
 
-Each SkrivLet element has classes applied to them with a prefix of `sl`.
+Each SkrivLet element has classes applied to them with a prefix of `sl`, which you can use to style how you wish.
 
-Here are the CSS variables used and their defaults:
+If you need some styles while developing you can add a basic theme using:
+
+    <link rel="stylesheet" href="~/App_Plugins/SkrivLet/basic-theme.css">
+
+For that basic theme, the following are the CSS variables used and their defaults:
 
     --sl-article-max-width: 800px;
     --sl-base-font-family: Georgia, 'Times New Roman', Times, serif;

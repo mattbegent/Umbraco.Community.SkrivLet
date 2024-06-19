@@ -1,0 +1,98 @@
+.sl-article {
+    margin: 0 auto;
+    max-width: var(--sl-article-max-width, 800px);
+    padding: 1.25rem;
+    font-family: var(--sl-base-font-family, Georgia, 'Times New Roman', Times, serif);
+    line-height: 1.5;
+    font-size: 1.25rem;
+    color: var(--sl-base-color, #242424);
+}
+
+.sl-article a {
+    color: var(--sl-link-color, #006fc6);
+    text-decoration: underline;
+}
+
+.sl-article a:hover,
+.sl-article a:focus {
+    color: var(--sl-link-color-hover, #5c5367);
+    text-decoration: underline;
+}
+
+.sl-heading {
+    font-family: var(--sl-heading-font-family, "Helvetica Neue", Helvetica, Arial, sans-serif);
+    font-weight: var(--sl-heading-font-weight, bold);
+    margin: 0 0 1.25rem 0;
+}
+
+.sl-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 1.25rem 0;
+}
+
+.sl-quote {
+    box-shadow: inset 3px 0 0 0 var(--sl-quote-border-color,#242424);
+    font-family: var(--sl-quote-font-family, Georgia, 'Times New Roman', Times, serif);
+    font-style: var(--sl-quote-font-style, italic);
+    margin: 0 0 1.25rem 2.5rem;
+    padding-left: 1.25rem;
+}
+
+.sl-text {
+    margin: 0 0 1.25rem 0;
+}
+
+.sl-list {
+    margin: 0 0 1.25rem 0;
+}
+
+.sl-list__item {
+    margin: 0 0 0.625rem 0;
+}
+
+.sl-list__item:last-child {
+    margin: 0;
+}
+
+.sl-code {
+    display: block;
+    background-color: var(--sl-code-background-color, #f1f1f1);
+    border-left: 3px solid var(--sl-code-border-color, #242424);
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+    font-family: var(--sl-code-font-family, ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace);
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1rem 1.5rem;
+    word-wrap: break-word;
+    tab-width: 4;
+}
+
+.sl-check {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: -2px 0 0 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid var(--sl-check-border-color, #C9C9C9);
+}
+
+.sl-check__icon {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    max-height: 20px;
+}
+
+.sl-check__text--checked {
+    text-decoration: line-through;
+}
