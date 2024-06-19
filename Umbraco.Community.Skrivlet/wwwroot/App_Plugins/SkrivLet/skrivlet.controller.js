@@ -253,6 +253,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         },
 
         onReady: () => {
+            new DragDrop(editor);
             stopUmbracosInterferingHotKeys();
         },
 

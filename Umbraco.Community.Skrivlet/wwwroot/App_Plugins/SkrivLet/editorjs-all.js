@@ -1,4 +1,279 @@
 (() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  };
+  var __copyProps = (to2, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to2, key) && key !== except)
+          __defProp(to2, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to2;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+
+  // node_modules/editorjs-drag-drop/dist/bundle.js
+  var require_bundle = __commonJS({
+    "node_modules/editorjs-drag-drop/dist/bundle.js"(exports, module) {
+      !function(e, t) {
+        "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define([], t) : "object" == typeof exports ? exports.DragDrop = t() : e.DragDrop = t();
+      }(self, () => (() => {
+        "use strict";
+        var e = { 523: (e2, t2, r3) => {
+          r3.d(t2, { A: () => c5 });
+          var o4 = r3(601), n = r3.n(o4), a5 = r3(314), i3 = r3.n(a5)()(n());
+          i3.push([e2.id, '.ce-block--drop-target .ce-block__content:before {\n  content: "";\n  position: absolute;\n  top: 50%;\n  left: -20px;\n  margin-top: -1px;\n  height: 8px;\n  width: 8px;\n  border: solid #a0a0a0;\n  border-width: 1px 1px 0 0;\n  -webkit-transform-origin: right;\n  transform-origin: right;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n\n.ce-block--drop-target .ce-block__content:after {\n  background: none;\n}\n', ""]);
+          const c5 = i3;
+        }, 314: (e2) => {
+          e2.exports = function(e3) {
+            var t2 = [];
+            return t2.toString = function() {
+              return this.map(function(t3) {
+                var r3 = "", o4 = void 0 !== t3[5];
+                return t3[4] && (r3 += "@supports (".concat(t3[4], ") {")), t3[2] && (r3 += "@media ".concat(t3[2], " {")), o4 && (r3 += "@layer".concat(t3[5].length > 0 ? " ".concat(t3[5]) : "", " {")), r3 += e3(t3), o4 && (r3 += "}"), t3[2] && (r3 += "}"), t3[4] && (r3 += "}"), r3;
+              }).join("");
+            }, t2.i = function(e4, r3, o4, n, a5) {
+              "string" == typeof e4 && (e4 = [[null, e4, void 0]]);
+              var i3 = {};
+              if (o4) for (var c5 = 0; c5 < this.length; c5++) {
+                var s = this[c5][0];
+                null != s && (i3[s] = true);
+              }
+              for (var l4 = 0; l4 < e4.length; l4++) {
+                var u2 = [].concat(e4[l4]);
+                o4 && i3[u2[0]] || (void 0 !== a5 && (void 0 === u2[5] || (u2[1] = "@layer".concat(u2[5].length > 0 ? " ".concat(u2[5]) : "", " {").concat(u2[1], "}")), u2[5] = a5), r3 && (u2[2] ? (u2[1] = "@media ".concat(u2[2], " {").concat(u2[1], "}"), u2[2] = r3) : u2[2] = r3), n && (u2[4] ? (u2[1] = "@supports (".concat(u2[4], ") {").concat(u2[1], "}"), u2[4] = n) : u2[4] = "".concat(n)), t2.push(u2));
+              }
+            }, t2;
+          };
+        }, 601: (e2) => {
+          e2.exports = function(e3) {
+            return e3[1];
+          };
+        }, 72: (e2) => {
+          var t2 = [];
+          function r3(e3) {
+            for (var r4 = -1, o5 = 0; o5 < t2.length; o5++) if (t2[o5].identifier === e3) {
+              r4 = o5;
+              break;
+            }
+            return r4;
+          }
+          function o4(e3, o5) {
+            for (var a5 = {}, i3 = [], c5 = 0; c5 < e3.length; c5++) {
+              var s = e3[c5], l4 = o5.base ? s[0] + o5.base : s[0], u2 = a5[l4] || 0, d5 = "".concat(l4, " ").concat(u2);
+              a5[l4] = u2 + 1;
+              var f2 = r3(d5), p3 = { css: s[1], media: s[2], sourceMap: s[3], supports: s[4], layer: s[5] };
+              if (-1 !== f2) t2[f2].references++, t2[f2].updater(p3);
+              else {
+                var v2 = n(p3, o5);
+                o5.byIndex = c5, t2.splice(c5, 0, { identifier: d5, updater: v2, references: 1 });
+              }
+              i3.push(d5);
+            }
+            return i3;
+          }
+          function n(e3, t3) {
+            var r4 = t3.domAPI(t3);
+            return r4.update(e3), function(t4) {
+              if (t4) {
+                if (t4.css === e3.css && t4.media === e3.media && t4.sourceMap === e3.sourceMap && t4.supports === e3.supports && t4.layer === e3.layer) return;
+                r4.update(e3 = t4);
+              } else r4.remove();
+            };
+          }
+          e2.exports = function(e3, n2) {
+            var a5 = o4(e3 = e3 || [], n2 = n2 || {});
+            return function(e4) {
+              e4 = e4 || [];
+              for (var i3 = 0; i3 < a5.length; i3++) {
+                var c5 = r3(a5[i3]);
+                t2[c5].references--;
+              }
+              for (var s = o4(e4, n2), l4 = 0; l4 < a5.length; l4++) {
+                var u2 = r3(a5[l4]);
+                0 === t2[u2].references && (t2[u2].updater(), t2.splice(u2, 1));
+              }
+              a5 = s;
+            };
+          };
+        }, 659: (e2) => {
+          var t2 = {};
+          e2.exports = function(e3, r3) {
+            var o4 = function(e4) {
+              if (void 0 === t2[e4]) {
+                var r4 = document.querySelector(e4);
+                if (window.HTMLIFrameElement && r4 instanceof window.HTMLIFrameElement) try {
+                  r4 = r4.contentDocument.head;
+                } catch (e5) {
+                  r4 = null;
+                }
+                t2[e4] = r4;
+              }
+              return t2[e4];
+            }(e3);
+            if (!o4) throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+            o4.appendChild(r3);
+          };
+        }, 540: (e2) => {
+          e2.exports = function(e3) {
+            var t2 = document.createElement("style");
+            return e3.setAttributes(t2, e3.attributes), e3.insert(t2, e3.options), t2;
+          };
+        }, 56: (e2, t2, r3) => {
+          e2.exports = function(e3) {
+            var t3 = r3.nc;
+            t3 && e3.setAttribute("nonce", t3);
+          };
+        }, 825: (e2) => {
+          e2.exports = function(e3) {
+            if ("undefined" == typeof document) return { update: function() {
+            }, remove: function() {
+            } };
+            var t2 = e3.insertStyleElement(e3);
+            return { update: function(r3) {
+              !function(e4, t3, r4) {
+                var o4 = "";
+                r4.supports && (o4 += "@supports (".concat(r4.supports, ") {")), r4.media && (o4 += "@media ".concat(r4.media, " {"));
+                var n = void 0 !== r4.layer;
+                n && (o4 += "@layer".concat(r4.layer.length > 0 ? " ".concat(r4.layer) : "", " {")), o4 += r4.css, n && (o4 += "}"), r4.media && (o4 += "}"), r4.supports && (o4 += "}");
+                var a5 = r4.sourceMap;
+                a5 && "undefined" != typeof btoa && (o4 += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(a5)))), " */")), t3.styleTagTransform(o4, e4, t3.options);
+              }(t2, e3, r3);
+            }, remove: function() {
+              !function(e4) {
+                if (null === e4.parentNode) return false;
+                e4.parentNode.removeChild(e4);
+              }(t2);
+            } };
+          };
+        }, 113: (e2) => {
+          e2.exports = function(e3, t2) {
+            if (t2.styleSheet) t2.styleSheet.cssText = e3;
+            else {
+              for (; t2.firstChild; ) t2.removeChild(t2.firstChild);
+              t2.appendChild(document.createTextNode(e3));
+            }
+          };
+        } }, t = {};
+        function r2(o4) {
+          var n = t[o4];
+          if (void 0 !== n) return n.exports;
+          var a5 = t[o4] = { id: o4, exports: {} };
+          return e[o4](a5, a5.exports, r2), a5.exports;
+        }
+        r2.n = (e2) => {
+          var t2 = e2 && e2.__esModule ? () => e2.default : () => e2;
+          return r2.d(t2, { a: t2 }), t2;
+        }, r2.d = (e2, t2) => {
+          for (var o4 in t2) r2.o(t2, o4) && !r2.o(e2, o4) && Object.defineProperty(e2, o4, { enumerable: true, get: t2[o4] });
+        }, r2.o = (e2, t2) => Object.prototype.hasOwnProperty.call(e2, t2), r2.nc = void 0;
+        var o3 = {};
+        return (() => {
+          r2.d(o3, { default: () => g3 });
+          var e2 = r2(72), t2 = r2.n(e2), n = r2(825), a5 = r2.n(n), i3 = r2(659), c5 = r2.n(i3), s = r2(56), l4 = r2.n(s), u2 = r2(540), d5 = r2.n(u2), f2 = r2(113), p3 = r2.n(f2), v2 = r2(523), y2 = {};
+          function h3(e3) {
+            return h3 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e4) {
+              return typeof e4;
+            } : function(e4) {
+              return e4 && "function" == typeof Symbol && e4.constructor === Symbol && e4 !== Symbol.prototype ? "symbol" : typeof e4;
+            }, h3(e3);
+          }
+          function b2(e3, t3) {
+            for (var r3 = 0; r3 < t3.length; r3++) {
+              var o4 = t3[r3];
+              o4.enumerable = o4.enumerable || false, o4.configurable = true, "value" in o4 && (o4.writable = true), Object.defineProperty(e3, m3(o4.key), o4);
+            }
+          }
+          function m3(e3) {
+            var t3 = function(e4, t4) {
+              if ("object" != h3(e4) || !e4) return e4;
+              var r3 = e4[Symbol.toPrimitive];
+              if (void 0 !== r3) {
+                var o4 = r3.call(e4, "string");
+                if ("object" != h3(o4)) return o4;
+                throw new TypeError("@@toPrimitive must return a primitive value.");
+              }
+              return String(e4);
+            }(e3);
+            return "symbol" == h3(t3) ? t3 : t3 + "";
+          }
+          y2.styleTagTransform = p3(), y2.setAttributes = l4(), y2.insert = c5().bind(null, "head"), y2.domAPI = a5(), y2.insertStyleElement = d5(), t2()(v2.A, y2), v2.A && v2.A.locals && v2.A.locals;
+          var g3 = function() {
+            return e3 = function e4(t4, r4) {
+              var o4 = t4.configuration, n2 = t4.blocks, a6 = t4.toolbar, i4 = t4.save;
+              !function(e5, t5) {
+                if (!(e5 instanceof t5)) throw new TypeError("Cannot call a class as a function");
+              }(this, e4), this.toolbar = a6, this.borderStyle = r4 || "1px dashed #aaa", this.api = n2, this.holder = "string" == typeof o4.holder ? document.getElementById(o4.holder) : o4.holder, this.readOnly = o4.readOnly, this.startBlock = null, this.endBlock = null, this.save = i4, this.setDragListener(), this.setDropListener();
+            }, r3 = [{ key: "isReadOnlySupported", get: function() {
+              return true;
+            } }], (t3 = [{ key: "setElementCursor", value: function(e4) {
+              if (e4) {
+                var t4 = document.createRange(), r4 = window.getSelection();
+                t4.setStart(e4.childNodes[0], 0), t4.collapse(true), r4.removeAllRanges(), r4.addRange(t4), e4.focus();
+              }
+            } }, { key: "setDragListener", value: function() {
+              var e4 = this;
+              if (!this.readOnly) {
+                var t4 = this.holder.querySelector(".ce-toolbar__settings-btn");
+                t4.setAttribute("draggable", "true"), t4.addEventListener("dragstart", function() {
+                  e4.startBlock = e4.api.getCurrentBlockIndex();
+                }), t4.addEventListener("drag", function() {
+                  if (e4.toolbar.close(), !e4.isTheOnlyBlock()) {
+                    var t5 = e4.holder.querySelectorAll(".ce-block"), r4 = e4.holder.querySelector(".ce-block--drop-target");
+                    e4.setElementCursor(r4), e4.setBorderBlocks(t5, r4);
+                  }
+                });
+              }
+            } }, { key: "setBorderBlocks", value: function(e4, t4) {
+              var r4 = this;
+              Object.values(e4).forEach(function(o4) {
+                var n2 = o4.querySelector(".ce-block__content");
+                o4 !== t4 ? (n2.style.removeProperty("border-top"), n2.style.removeProperty("border-bottom")) : Object.keys(e4).find(function(r5) {
+                  return e4[r5] === t4;
+                }) > r4.startBlock ? n2.style.borderBottom = r4.borderStyle : n2.style.borderTop = r4.borderStyle;
+              });
+            } }, { key: "setDropListener", value: function() {
+              var e4 = this;
+              document.addEventListener("drop", function(t4) {
+                var r4 = t4.target;
+                if (e4.holder.contains(r4) && null !== e4.startBlock) {
+                  var o4 = e4.getDropTarget(r4);
+                  if (o4) {
+                    var n2 = o4.querySelector(".ce-block__content");
+                    n2.style.removeProperty("border-top"), n2.style.removeProperty("border-bottom"), e4.endBlock = e4.getTargetPosition(o4), e4.moveBlocks();
+                  }
+                }
+                e4.startBlock = null;
+              });
+            } }, { key: "getDropTarget", value: function(e4) {
+              return e4.classList.contains("ce-block") ? e4 : e4.closest(".ce-block");
+            } }, { key: "getTargetPosition", value: function(e4) {
+              return Array.from(e4.parentNode.children).indexOf(e4);
+            } }, { key: "isTheOnlyBlock", value: function() {
+              return 1 === this.api.getBlocksCount();
+            } }, { key: "moveBlocks", value: function() {
+              this.isTheOnlyBlock() || this.api.move(this.endBlock, this.startBlock);
+            } }]) && b2(e3.prototype, t3), r3 && b2(e3, r3), Object.defineProperty(e3, "prototype", { writable: false }), e3;
+            var e3, t3, r3;
+          }();
+        })(), o3.default;
+      })());
+    }
+  });
+
   // node_modules/@editorjs/editorjs/dist/editorjs.mjs
   var Rt = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
   function Pe(s) {
@@ -11450,6 +11725,7 @@
   };
 
   // editorjs-bundle.js
+  var import_editorjs_drag_drop = __toESM(require_bundle());
   window.EditorJS = Bi;
   window.Header = c2;
   window.RawTool = r;
@@ -11458,6 +11734,7 @@
   window.Embed = m2;
   window.Quote = i2;
   window.CodeTool = d4;
+  window.DragDrop = import_editorjs_drag_drop.default;
 })();
 /*! Bundled license information:
 

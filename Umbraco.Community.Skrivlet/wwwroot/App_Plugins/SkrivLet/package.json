@@ -11,13 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "@editorjs/checklist": "^1.6.0",
+    "@editorjs/code": "^2.9.0",
     "@editorjs/editorjs": "^2.29.1",
     "@editorjs/embed": "^2.7.4",
     "@editorjs/header": "^2.8.1",
     "@editorjs/list": "^1.9.0",
     "@editorjs/quote": "^2.6.0",
     "@editorjs/raw": "^2.5.0",
-    "esbuild": "^0.21.5",
-    "@editorjs/code": "^2.9.0"
+    "editorjs-drag-drop": "^1.1.14",
+    "esbuild": "^0.21.5"
   }
 }
