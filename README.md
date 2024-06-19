@@ -1,5 +1,7 @@
 # SkrivLet
 
+> SkrivLet /skriːˀv let/ - Danish for Write Easily 
+
 A clean WYSIWYG property editor for distraction free writing in Umbraco.
 
 ## Demo
