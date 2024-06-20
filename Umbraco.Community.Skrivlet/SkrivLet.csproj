@@ -11,8 +11,8 @@
     <PropertyGroup>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Product>Umbraco.Community.SkrivLet</Product>
-        <Title>EditorJS editor for Umbraco</Title>
-        <Description>SkrivLet, an EditorJS datatype for Umbraco.</Description>
+        <Title>SkrivLet</Title>
+        <Description>SkrivLet, A clean WYSIWYG property editor for distraction free writing in Umbraco.</Description>
         <Version>0.1.5</Version>
         <Authors>Matt Begent, Steve Temple</Authors>
         <Company>Matt Begent, Steve Temple</Company>
@@ -27,10 +27,10 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     </PropertyGroup>
+
     <ItemGroup>
       <None Remove="readme.md" />
     </ItemGroup>
-
 
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -38,10 +38,5 @@
         <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
         <PackageReference Include="Umbraco.Cms.Core" Version="13.3.2" />
     </ItemGroup>
-
-    <!--
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="xcopy App_Plugins ..\TestProject\App_Plugins\ /E&#xD;&#xA;xcopy Views\BegeWrite ..\TestProject\Views\BegeWrite\ /E" />
-    </Target>-->
 
 </Project>
