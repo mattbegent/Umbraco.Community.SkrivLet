@@ -2,6 +2,8 @@
 
 > SkrivLet /skriːˀv let/ - Danish for Write Easily 
 
+![SkrivLet Logo](https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skriv-let-logo.png)
+
 A clean WYSIWYG property editor for distraction free writing in Umbraco. Designed for Umbraco 13 (v14+ version coming soon)
 
 ## Demo
@@ -16,7 +18,7 @@ You can install SkrivLet using
     
 or
 
-    install-package Umbraco.Community.SkrivLet`. 
+    install-package Umbraco.Community.SkrivLet
 
 This will add the SkrivLet property editor to your site. You should be then able to add a new data type and add it to your documents types.
 
@@ -32,7 +34,7 @@ You'll need to add
 
 For the view to be able to use the extensions
 
-SkrivLet comes with some basic views, If you want to override the defaults your can put a replacement in your project in `Views/Partials/SkrivLet/` and this will override the built in views. Refer to the ![basic built in views](https://github.com/mattbegent/Umbraco.Community.SkrivLet/tree/main/Umbraco.Community.Skrivlet/Views/Partials/SkrivLet) to get an example of the code required
+SkrivLet comes with some basic views, If you want to override the defaults your can put a replacement in your project in `Views/Partials/SkrivLet/` and this will override the built in views. Refer to the [basic built in views](https://github.com/mattbegent/Umbraco.Community.SkrivLet/tree/main/Umbraco.Community.Skrivlet/Views/Partials/SkrivLet) to get an example of the code required
 
 ## Styling
 
@@ -60,11 +62,7 @@ For that basic theme, the following are the CSS variables used and their default
     --sl-code-border-color: #242424;
     --sl-code-font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
     --sl-check-border-color: #C9C9C9;
-    
-## Custom HTML
-
-Documentation coming soon...
 
 ## Extending
 
-We'll be adding ways to add your own block types soon
+We'll be adding ways to add your own block types soon.

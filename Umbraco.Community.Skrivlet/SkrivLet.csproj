@@ -22,6 +22,7 @@
         <PackageProjectUrl>https://github.com/mattbegent/Umbraco.Community.SkrivLet</PackageProjectUrl>
         <PackageTags>umbraco umbraco-marketplace</PackageTags>
         <RepositoryUrl>https://github.com/mattbegent/Umbraco.Community.SkrivLet</RepositoryUrl>
+        <PackageIcon>skriv-let-logo.png</PackageIcon>
         <RepositoryType>git</RepositoryType>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -30,6 +31,7 @@
 
     <ItemGroup>
       <None Remove="readme.md" />
+      <None Include="..\images\skriv-let-logo.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>

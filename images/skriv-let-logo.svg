@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 193.61 193.61">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <circle cx="96.81" cy="96.81" r="93.81" fill="#f3f6f5" stroke="#1c4d3e" stroke-miterlimit="10" stroke-width="6"/>
+    <g id="Layer_1-3" data-name="Layer 1">
+      <rect x="70.23" y="72.04" width="54.33" height="4.94" fill="#1e4d3e" stroke-width="0"/>
+      <rect x="70.23" y="86.86" width="54.33" height="4.94" fill="#1e4d3e" stroke-width="0"/>
+      <rect x="70.23" y="101.68" width="41.98" height="4.94" fill="#1e4d3e" stroke-width="0"/>
+      <rect x="70.23" y="116.49" width="29.63" height="4.94" fill="#1e4d3e" stroke-width="0"/>
+      <rect x="70.23" y="131.31" width="29.63" height="4.94" fill="#1e4d3e" stroke-width="0"/>
+      <path d="M144.32,83.37v-24.69l-18.73-18.73H50.48v118.53h93.84v-43.43l25.72-25.72-15.84-15.84-9.88,9.88ZM141.85,92.82l8.86,8.86-29.63,29.63h-8.86v-8.86l29.63-29.63ZM127.03,48.37l8.86,8.86h-8.86s0-8.86,0-8.86ZM139.38,153.54H55.42V44.88h66.68v17.29h17.29v26.14l-32.1,32.1v15.84h15.84l16.26-16.26v33.55ZM154.19,98.19l-8.86-8.86,8.86-8.86,8.86,8.86-8.86,8.86Z" fill="#1e4d3e" stroke-width="0"/>
+    </g>
+  </g>
+</svg>
