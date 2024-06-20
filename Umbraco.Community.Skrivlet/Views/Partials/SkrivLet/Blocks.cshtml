@@ -4,7 +4,7 @@
 @foreach (var block in Model.Blocks)
 {
 	<div id="@block.Id" class="sl-block">
-		@await Html.PartialAsync($"~/views/partials/SkrivLet/{block.Type}.cshtml", block)
+		@await Html.PartialAsync($"~/Views/Partials/SkrivLet/{block.Type}.cshtml", block)
 	</div>
 }
 </article>

@@ -5,7 +5,7 @@ namespace Umbraco.Community.SkrivLet
 {
     public static class SkrivLetExtensions
     {
-        public static async Task<IHtmlContent> RenderBegeWrite(this IHtmlHelper html, SkrivLetModel model)
+        public static async Task<IHtmlContent> RenderSkrivLet(this IHtmlHelper html, SkrivLetModel model)
         {
             return await html.PartialAsync("~/Views/Partials/SkrivLet/Blocks.cshtml", model);
         }
