@@ -19,5 +19,6 @@
     "javascript": [
         "~/App_Plugins/SkrivLet/editorjs-all.js",
         "~/App_Plugins/SkrivLet/skrivlet.controller.js"
-    ]
+    ],
+    "bundleOptions": "None"
 }
