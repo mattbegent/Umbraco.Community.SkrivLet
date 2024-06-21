@@ -47,6 +47,14 @@ namespace Umbraco.Community.SkrivLet.Converters
                         reader.Read();
                         block.Data.Udi = UdiParser.Parse(reader.GetString());
                         break;
+                    case "width":
+                        reader.Read();
+                        block.Data.Width = reader.GetInt16();
+                        break;
+                    case "height":
+                        reader.Read();
+                        block.Data.Height = reader.GetInt16();
+                        break;
                 }
             }
             return block;
@@ -58,5 +66,7 @@ namespace Umbraco.Community.SkrivLet.Converters
         public string Url { get; set; }
         public string Alt { get; set; }
         public Udi Udi { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }
     }
 }

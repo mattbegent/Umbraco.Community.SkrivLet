@@ -85,7 +85,6 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                 multiPicker: false,
                 submit: (result) => {
                     editorService.close();
-                    console.log(result.target);
                     if (result.target.udi) {
                         this.wrap(range, result.target.udi);
                     } else {
@@ -166,12 +165,13 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                 onlyImages: true,
                 multiPicker: false,
                 submit: (item) => {
-                    console.log(item);
                     const imageUrl = item.selection[0].image;
                     const imageAlt = item.selection[0].name;
                     this.data.url = imageUrl;
                     this.data.alt = imageAlt;
                     this.data.udi = item.selection[0].udi;
+                    this.data.width = parseInt(item.selection[0].width); // sometimes a string for some reason?
+                    this.data.height = parseInt(item.selection[0].height);
                     this.input.value = imageUrl;
                     this.image.src = imageUrl;
                     this.image.alt = imageAlt;
@@ -179,7 +179,6 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                     //this.render();
                     this.save();
                     editorService.close();
-                    console.log(this.api);
                     setTimeout(() => {
                         this.image.scrollIntoView();
                     }, 200);
@@ -206,7 +205,9 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             return {
                 url: this.data.url,
                 alt: this.data.alt,
-                udi: this.data.udi
+                udi: this.data.udi,
+                width: this.data.width,
+                height: this.data.height
             };
         }
 
