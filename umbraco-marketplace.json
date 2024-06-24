@@ -12,6 +12,22 @@
   "RelatedPackages": [],
   "Screenshots": [
     {
+      "ImageUrl": "https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/screenshots/skrivlet-model.png",
+      "Caption": "Screenshot of the SkrivLet editor with lorem ipsum text and Steve lying on the flor modelling a Spark tshirt."
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/screenshots/skrivlet-tools.png",
+      "Caption": "Screenshot of the SkrivLet editor showing the tools available."
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/screenshots/skrivlet-inline-tool.png",
+      "Caption": "Screenshot of the SkrivLet editor showing the inline tools available."
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/screenshots/skrivlet-block-options.png",
+      "Caption": "Screenshot of the SkrivLet editor showing the options available on the image block."
+    },
+    {
       "ImageUrl": "https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skriv-let.gif",
       "Caption": "Video showing the basic functionality of SkrivLet."
     }

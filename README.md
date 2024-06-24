@@ -8,7 +8,7 @@ A clean WYSIWYG property editor for distraction free writing in Umbraco. Designe
 
 ## Demo
 
-![SkrivLet Demo](https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skriv-let.gif)
+![SkrivLet Demo](https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skrivlet-demo.gif)
 
 ## Installation 
 
