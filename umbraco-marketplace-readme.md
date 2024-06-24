@@ -1,11 +1,5 @@
 # SkrivLet
 
-> SkrivLet /skriːˀv let/ - Danish for Write Easily 
-
-![SkrivLet Logo](https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skriv-let-logo.png)
-
-A clean WYSIWYG property editor for distraction free writing in Umbraco. Designed for Umbraco 13 (v14+ version coming soon)
-
 ## Demo
 
 ![SkrivLet Demo](https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skrivlet-demo.gif)
