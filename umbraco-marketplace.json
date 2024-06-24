@@ -1,0 +1,34 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "Category": "Editor Tools",
+  "DiscussionForumUrl": "https://github.com/mattbegent/Umbraco.Community.SkrivLet/discussions",
+  "DocumentationUrl": "https://github.com/mattbegent/Umbraco.Community.SkrivLet",
+  "IssueTrackerUrl": "https://github.com/mattbegent/Umbraco.Community.SkrivLet/issues",
+  "LicenseTypes": [
+    "Free"
+  ],
+  "PackageType": "Package",
+  "PackagesByAuthor": [],
+  "RelatedPackages": [],
+  "Screenshots": [
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/mattbegent/Umbraco.Community.SkrivLet/main/images/skriv-let.gif",
+      "Caption": "Video showing the basic functionality of SkrivLet."
+    }
+  ],
+  "Tags": [
+    "WYSIWYG",
+    "backoffice",
+    "property editor",
+    "writing",
+    "editor"
+  ],
+  "Title": "SkrivLet",
+  "Description": "A clean WYSIWYG property editor for distraction free writing in Umbraco.",
+  "VersionSpecificPackageIds": [
+    {
+      "UmbracoMajorVersion": 13,
+      "PackageId": "Umbraco.Community.SkrivLet"
+    }
+  ]
+}
