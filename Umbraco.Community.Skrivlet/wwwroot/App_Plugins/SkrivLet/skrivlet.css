@@ -20,6 +20,9 @@
     .codex-editor--narrow .ce-toolbar__actions {
         right: 100%;
     }
+    .codex-editor--narrow .codex-editor__redactor {
+        margin-right: 0;
+    }
 }
 
 .ce-popover {
