@@ -18,6 +18,7 @@ namespace Umbraco.Community.SkrivLet
 			builder.Services.AddTransient<IBlockDataConverter, QuoteBlockDataConverter>();
 			builder.Services.AddTransient<IBlockDataConverter, RawHtmlBlockDataConverter>();
 			builder.Services.AddTransient<IBlockDataConverter, CheckListBlockDataConverter>();
+            builder.Services.AddTransient<IBlockDataConverter, EmbedBlockDataConverter>();
 		}
 	}
 }

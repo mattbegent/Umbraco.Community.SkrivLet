@@ -34,6 +34,10 @@
         max-width: 800px;
     }
 
+.cdx-label {
+    font-weight: 700;
+}
+
 /* Image */
 .simple-image {
     padding: 20px 0;
