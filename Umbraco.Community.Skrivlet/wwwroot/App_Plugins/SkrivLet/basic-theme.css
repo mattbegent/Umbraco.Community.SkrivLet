@@ -97,3 +97,14 @@
 .sl-check__text--checked {
     text-decoration: line-through;
 }
+
+.sl-embed {
+    margin: 0 0 1.25rem 0;
+}
+
+.sl-embed--youtube iframe,
+.sl-embed--vimeo iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+}
