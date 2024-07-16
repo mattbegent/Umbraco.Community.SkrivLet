@@ -13,7 +13,7 @@
         <Product>Umbraco.Community.SkrivLet</Product>
         <Title>SkrivLet</Title>
         <Description>SkrivLet, A clean WYSIWYG property editor for distraction free writing in Umbraco.</Description>
-        <Version>0.4.0</Version>
+        <Version>0.5.0</Version>
         <Authors>Matt Begent, Steve Temple</Authors>
         <Company>Matt Begent, Steve Temple</Company>
         <Copyright>$([System.DateTime]::Now.Year) © $(Company)</Copyright>
