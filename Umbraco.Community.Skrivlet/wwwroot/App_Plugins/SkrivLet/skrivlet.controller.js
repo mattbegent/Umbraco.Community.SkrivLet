@@ -311,7 +311,10 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             quote: Quote,
             code: CodeTool,
             raw: RawTool,
-            list: List,
+            list: {
+                class: List,
+                inlineToolbar: true
+            },
             checklist: Checklist,
             link: UmbracoLinkTool // override link with Umbraco link picker
         },
