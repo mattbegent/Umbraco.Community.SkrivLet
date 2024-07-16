@@ -1,5 +1,38 @@
 angular.module('umbraco').controller('SkrivLetController', function ($scope, editorService) {
 
+    class RenderHelper {
+
+        static randomUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        static createLabel(id, cssClass, text) {
+            const label = document.createElement('label');
+            label.innerHTML = text;
+            label.classList.add(cssClass);
+            label.setAttribute('for', id);
+            return label;
+        }
+
+        static createInput(id, value, text, type) {
+            const input = document.createElement('input');
+            input.setAttribute('type', type);
+            if(value) {
+                input.setAttribute('value', value);
+            }
+            if(text) {
+                input.setAttribute('placeholder', text);
+            }
+            input.setAttribute('id', id);
+            input.classList.add('cdx-input');
+            return input;
+        }
+
+    }
+
     class UmbracoLinkTool {
 
         static get isInline() {
@@ -109,17 +142,6 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             };
         }
 
-        /**
-         * Automatic sanitize config
-         * @see {@link https://editorjs.io/sanitize-saved-data}
-         */
-        // static get sanitize() {
-        //   return {
-        //     url: {},
-        //     img: {}
-        //   }
-        // }
-
         constructor({ data, api, config }) {
             this.api = api;
             this.config = config || {};
@@ -131,6 +153,8 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
             this.wrapper = undefined;
             this.input = undefined;
+            this.altTextLabel = undefined;
+            this.altTextInput = undefined;
             this.image = undefined;
             this.button = undefined;
         }
@@ -139,6 +163,11 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             this.wrapper = document.createElement('div');
             this.input = document.createElement('input');
             this.input.setAttribute('type', 'hidden');
+
+            const altTextID = RenderHelper.randomUUID();
+            this.altTextLabel = RenderHelper.createLabel(altTextID, 'sr-only', 'Alt text');
+            this.altTextInput = RenderHelper.createInput(altTextID, this.data.alt, 'Enter alt text', 'text');
+
             this.wrapper.classList.add('simple-image');
 
             this._createImage(this.data.url);
@@ -153,6 +182,8 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             this.image.addEventListener('click', () => {
                 this._openMediaPicker();
             });
+            this.wrapper.appendChild(this.altTextLabel);
+            this.wrapper.appendChild(this.altTextInput);
             this.wrapper.appendChild(this.button);
             this.wrapper.appendChild(this.input);
 
@@ -175,6 +206,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                     this.input.value = imageUrl;
                     this.image.src = imageUrl;
                     this.image.alt = imageAlt;
+                    this.altTextInput.value = imageAlt;
                     this.button.textContent = this.data && this.data.url ? "Change image" : "Select an image";
                     //this.render();
                     this.save();
@@ -204,7 +236,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         save(blockContent) {
             return {
                 url: this.data.url,
-                alt: this.data.alt,
+                alt: this.altTextInput.value,
                 udi: this.data.udi,
                 width: this.data.width,
                 height: this.data.height
@@ -224,20 +256,12 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         render() {
           if (!this.data.service) {
             const container = document.createElement('div');
-
             this.element = container;
 
-            const label = document.createElement('label');
-            label.innerHTML = 'Enter a URL to embed a video from YouTube or Vimeo';
-            label.classList.add('cdx-label');
-            label.setAttribute('for', 'embed-input');
+            const label = RenderHelper.createLabel('embed-input', 'cdx-label', 'Enter a URL to embed a video from YouTube or Vimeo');
             container.appendChild(label);
 
-            const input = document.createElement('input');
-            input.classList.add('cdx-input');
-            input.placeholder = '';
-            input.type = 'url';
-            input.id = 'embed-input';
+            const input = RenderHelper.createInput('embed-input', '', '', 'url');
             input.addEventListener('paste', (event) => {
               const url = event.clipboardData.getData('text');
               const service = Object.keys(Embed.services).find((key) => Embed.services[key].regex.test(url));
@@ -287,7 +311,10 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             quote: Quote,
             code: CodeTool,
             raw: RawTool,
-            list: List,
+            list: {
+                class: List,
+                inlineToolbar: true
+            },
             checklist: Checklist,
             link: UmbracoLinkTool // override link with Umbraco link picker
         },
@@ -297,7 +324,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             editor.save().then((outputData) => {
                 $scope.model.value = JSON.stringify(outputData);
             }).catch((error) => {
-                console.log('Saving failed: ', error)
+                console.log('Saving failed: ', error);
             });
 
         },
