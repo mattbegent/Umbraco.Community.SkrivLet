@@ -1,4 +1,4 @@
-angular.module('umbraco').controller('SkrivLetController', function ($scope, editorService) {
+angular.module('umbraco').controller('SkrivLetController', function ($scope, editorService, editorState, overlayService, eventsService) {
 
     class RenderHelper {
 
@@ -20,10 +20,10 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         static createInput(id, value, text, type) {
             const input = document.createElement('input');
             input.setAttribute('type', type);
-            if(value) {
+            if (value) {
                 input.setAttribute('value', value);
             }
-            if(text) {
+            if (text) {
                 input.setAttribute('placeholder', text);
             }
             input.setAttribute('id', id);
@@ -247,94 +247,177 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
     class EmbedWithUI extends Embed {
         static get toolbox() {
-          return {
-            title: 'Video',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube w-6 h-6 mx-1"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>'
-          };
+            return {
+                title: 'Video',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube w-6 h-6 mx-1"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>'
+            };
         }
 
         render() {
-          if (!this.data.service) {
-            const container = document.createElement('div');
-            this.element = container;
+            if (!this.data.service) {
+                const container = document.createElement('div');
+                this.element = container;
 
-            const label = RenderHelper.createLabel('embed-input', 'cdx-label', 'Enter a URL to embed a video from YouTube or Vimeo');
-            container.appendChild(label);
+                const label = RenderHelper.createLabel('embed-input', 'cdx-label', 'Enter a URL to embed a video from YouTube or Vimeo');
+                container.appendChild(label);
 
-            const input = RenderHelper.createInput('embed-input', '', '', 'url');
-            input.addEventListener('paste', (event) => {
-              const url = event.clipboardData.getData('text');
-              const service = Object.keys(Embed.services).find((key) => Embed.services[key].regex.test(url));
-              if (service) {
-                this.onPaste({detail: {key: service, data: url}});
-              }
-            });
-            container.appendChild(input);
+                const input = RenderHelper.createInput('embed-input', '', '', 'url');
+                input.addEventListener('paste', (event) => {
+                    const url = event.clipboardData.getData('text');
+                    const service = Object.keys(Embed.services).find((key) => Embed.services[key].regex.test(url));
+                    if (service) {
+                        this.onPaste({ detail: { key: service, data: url } });
+                    }
+                });
+                container.appendChild(input);
 
-            return container;
-          }
-          return super.render();
+                return container;
+            }
+            return super.render();
         }
 
         validate(savedData) {
-          return savedData.service && savedData.source ? true : false;
+            return savedData.service && savedData.source ? true : false;
         }
-      }
+    }
 
-    const editor = new EditorJS({
+    var editor = null;
+    var initData = $scope.model.value ? $scope.model.value : {}
 
-        holder: 'editorjs',
-
-        placeholder: "Type '/' to insert a block or just start typing something super...",
-
-        data: $scope.model.value ? $scope.model.value : {},
-
-        inlineToolbar: true,
-
-        // TODO: Not working
-        sanitizer: {
-            a: {}
-        },
-
-        tools: {
-            embed: {
-                class: EmbedWithUI,
-                config: {
-                    services: {
-                      youtube: true,
-                      vimeo: true
-                    }
+    function init() {
+        if(dataIsDifferentFromLocalStorage()) {
+            var options = {
+                title: 'You have content that has not been saved',
+                content: 'Do you want to load the last unsaved content?',
+                disableBackdropClick: true,
+                disableEscKey: true,
+                confirmType: 'save',
+                submit: function () {
+                    initData = getFromLocalStorage();
+                    loadEditorJS();
+                    overlayService.close();
+                },
+                close: function () {
+                    loadEditorJS();
+                    overlayService.close();
                 }
+            };
+            overlayService.confirm(options);
+        } else {
+            loadEditorJS();
+        }
+
+        eventsService.on('content.saved', function (evt, data) {
+            console.log('save');
+            console.log(data.content);
+            clearLocalStorage();
+        })
+    }
+
+    init();
+
+    function loadEditorJS() {
+
+        editor = new EditorJS({
+
+            holder: 'editorjs',
+
+            placeholder: "Type '/' to insert a block or just start typing something super...",
+
+            data: initData,
+
+            inlineToolbar: true,
+
+            // TODO: Not working
+            sanitizer: {
+                a: {}
             },
-            header: Header,
-            image: UmbracoImageTool,
-            quote: Quote,
-            code: CodeTool,
-            raw: RawTool,
-            list: {
-                class: List,
-                inlineToolbar: true
+
+            tools: {
+                embed: {
+                    class: EmbedWithUI,
+                    config: {
+                        services: {
+                            youtube: true,
+                            vimeo: true
+                        }
+                    }
+                },
+                header: Header,
+                image: UmbracoImageTool,
+                quote: Quote,
+                code: CodeTool,
+                raw: RawTool,
+                list: {
+                    class: List,
+                    inlineToolbar: true
+                },
+                checklist: Checklist,
+                link: UmbracoLinkTool // override link with Umbraco link picker
             },
-            checklist: Checklist,
-            link: UmbracoLinkTool // override link with Umbraco link picker
-        },
 
-        onChange: (api, event) => {
-            stopUmbracosInterferingHotKeys();
-            editor.save().then((outputData) => {
-                $scope.model.value = JSON.stringify(outputData);
-            }).catch((error) => {
-                console.log('Saving failed: ', error);
-            });
+            onChange: (api, event) => {
+                console.log('On change');
+                stopUmbracosInterferingHotKeys();
+                editor.save().then((outputData) => {
+                    const jsonData = JSON.stringify(outputData);
+                    $scope.model.value = jsonData;
+                    saveToLocalStorage(jsonData);
+                }).catch((error) => {
+                    console.log('Saving failed: ', error);
+                });
 
-        },
+            },
 
-        onReady: () => {
-            new DragDrop(editor);
-            stopUmbracosInterferingHotKeys();
-        },
+            onReady: () => {
+                new DragDrop(editor);
+                stopUmbracosInterferingHotKeys();
+            },
 
-    });
+        });
+    }
+
+    function dataIsDifferentFromLocalStorage() {
+
+        const modelValue = $scope.model.value;
+        const storedData = getFromLocalStorage();
+
+        if(!modelValue || !storedData) {
+            return false;
+        }
+
+        const modelValueFormatted = modelValue;
+        delete modelValueFormatted.time;
+        delete modelValueFormatted.version;
+        const storedDataFormatted = storedData;
+        delete storedDataFormatted.time;
+        delete storedDataFormatted.version;
+        return JSON.stringify(modelValueFormatted) !== JSON.stringify(storedDataFormatted);
+    }
+
+    function getStorageKey() {
+        return 'Skrivlet.Block.' + editorState.current.id;
+    }
+
+    function saveToLocalStorage(data) {
+        try {
+            localStorage.setItem(getStorageKey(), data);
+        } catch (e) {
+            console.log('Failed to save data to local storage', e);
+        }
+    }
+
+    function clearLocalStorage() {
+        localStorage.removeItem(getStorageKey());
+    }
+
+    function getFromLocalStorage() {
+        const localData = localStorage.getItem(getStorageKey());
+        if (!localData) {
+            return null;
+        }
+        return JSON.parse(localData);
+    }
 
     // See: https://github.com/umbraco/Umbraco-CMS/pull/7186/files
     function stopUmbracosInterferingHotKeys() {
