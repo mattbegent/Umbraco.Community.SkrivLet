@@ -279,11 +279,14 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         validate(savedData) {
           return savedData.service && savedData.source ? true : false;
         }
-      }
+
+    }
+
+    $scope.model.editorId = 'skrivlet-editor-' + RenderHelper.randomUUID();
 
     const editor = new EditorJS({
 
-        holder: 'editorjs',
+        holder: $scope.model.editorId,
 
         placeholder: "Type '/' to insert a block or just start typing something super...",
 
@@ -338,7 +341,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
     // See: https://github.com/umbraco/Umbraco-CMS/pull/7186/files
     function stopUmbracosInterferingHotKeys() {
-        const editableElements = document.querySelectorAll('.cdx-block:not([disable-hotkeys="true"])');
+        const editableElements = document.querySelectorAll('.cdx-block:not([disable-hotkeys="true"]),.ce-header:not([disable-hotkeys="true"]),.cdx-input:not([disable-hotkeys="true"]),.cdx-checklist__item-text:not([disable-hotkeys="true"])');
         for (let index = 0; index < editableElements.length; index++) {
             const element = editableElements[index];
             element.setAttribute('disable-hotkeys', 'true');

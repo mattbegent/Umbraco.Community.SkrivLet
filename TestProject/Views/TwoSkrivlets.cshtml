@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.TwoSkrivlets>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Community.SkrivLet
+@{
+	Layout = null;
+}
+<link rel="stylesheet" href="~/App_Plugins/SkrivLet/basic-theme.css">
+@await Html.RenderSkrivLet(Model.Content)
+@await Html.RenderSkrivLet(Model.Content2)

@@ -6,6 +6,14 @@
     width: auto;
 }
 
+.ce-popover__container {
+    width: 250px;
+}
+
+.umb-editor--infiniteMode .ce-toolbar__actions {
+    right: calc(100% - 37px);
+}
+
 .ce-block__content,
 .ce-toolbar__content {
     max-width: 800px;
@@ -27,6 +35,10 @@
 
 .ce-popover {
     width: auto !important;
+}
+
+.ce-popover--inline .ce-popover--nested .ce-popover__container {
+    width: 250px;
 }
 
     .skriv-let-data {
