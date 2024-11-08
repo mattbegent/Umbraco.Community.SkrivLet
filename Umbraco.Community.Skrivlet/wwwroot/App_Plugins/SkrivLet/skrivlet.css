@@ -1,5 +1,7 @@
 .skriv-let {
     background-color: white;
+    max-width: 920px;
+    margin: 0 auto;
 }
 
 .skriv-let.cdx-search-field__input {
@@ -10,26 +12,35 @@
     width: 250px;
 }
 
-.umb-editor--infiniteMode .ce-toolbar__actions {
-    right: calc(100% - 37px);
-}
-
-.ce-block__content,
-.ce-toolbar__content {
-    max-width: 800px;
-}
-
-.ce-block__content {
-    padding: 0 30px;
-}
-
-/* Keep the toolbar on the left */
 @media (min-width: 651px) {
-    .codex-editor--narrow .ce-toolbar__actions {
-        right: 100%;
+    .ce-block__content {
+        max-width: calc(100% - 120px) !important;
+        margin: 0 60px;
     }
-    .codex-editor--narrow .codex-editor__redactor {
-        margin-right: 0;
+}
+
+@media (min-width: 651px) {
+    .ce-toolbar__content {
+        width: 0px !important;
+        margin: 0 50px;
+    }
+}
+
+.cdx-block {
+    max-width: 100% !important;
+}
+
+@media (min-width: 651px) {
+    .codex-editor--narrow .ce-toolbox .ce-popover {
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (min-width: 651px) {
+    .codex-editor--narrow .ce-settings .ce-popover {
+        right: 0;
+        left: 0;
     }
 }
 

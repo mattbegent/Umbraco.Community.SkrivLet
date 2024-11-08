@@ -284,13 +284,30 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
     $scope.model.editorId = 'skrivlet-editor-' + RenderHelper.randomUUID();
 
+    function getInitialData() {
+        var initialData = {};
+        // Sometimes Umbraco returns a string (e.g. block grid), sometimes an object
+        if(!$scope.model.value) {
+            initialData = {};
+        } else if (typeof $scope.model.value === 'string') {
+            try {
+                initialData = JSON.parse($scope.model.value);
+            } catch (e) {
+                console.error('Error parsing SkrivLet initial data JSON:', e);
+            }
+        } else {
+            initialData = $scope.model.value ? $scope.model.value : {};
+        }
+        return initialData;
+    }
+
     const editor = new EditorJS({
 
         holder: $scope.model.editorId,
 
         placeholder: "Type '/' to insert a block or just start typing something super...",
 
-        data: $scope.model.value ? $scope.model.value : {},
+        data: getInitialData(),
 
         inlineToolbar: true,
 
