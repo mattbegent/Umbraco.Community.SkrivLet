@@ -18,3 +18,14 @@
         @await Html.RenderSkrivLet(skrivletContent)
     }
 }
+
+@{
+    var grid = Model.Value<BlockGridModel>("grid");
+    var gridColumns = grid.GridColumns;
+    foreach (var item in grid)
+    {
+        var content = item.Content as SkrivLet;
+        var skrivletContent = content?.MainContent as SkrivLetModel;
+        @await Html.RenderSkrivLet(skrivletContent)
+    }
+}

@@ -175,6 +175,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             this.button = document.createElement('button');
             this.button.type = 'button';
             this.button.classList.add('umb-group-builder__group-add-property');
+            this.button.classList.add('skriv-let__add-image-button');
             this.button.textContent = this.data && this.data.url ? "Change image" : "Select an image";
             this.button.addEventListener('click', () => {
                 this._openMediaPicker();
@@ -241,6 +242,13 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                 width: this.data.width,
                 height: this.data.height
             };
+        }
+
+        validate(savedData) {
+            if(!savedData.url.trim() || !savedData.udi.trim()) {
+                return false;
+            }
+            return true;
         }
 
     }
@@ -317,6 +325,9 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         },
 
         tools: {
+            header: Header,
+            image: UmbracoImageTool,
+            quote: Quote,
             embed: {
                 class: EmbedWithUI,
                 config: {
@@ -326,9 +337,6 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                     }
                 }
             },
-            header: Header,
-            image: UmbracoImageTool,
-            quote: Quote,
             code: CodeTool,
             raw: RawTool,
             list: {
@@ -355,6 +363,14 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         },
 
     });
+
+    $scope.openFullscreen = function() {
+        if (!document.fullscreenElement) {
+            document.getElementById($scope.model.editorId).requestFullscreen();
+        } else if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    };
 
     // See: https://github.com/umbraco/Umbraco-CMS/pull/7186/files
     function stopUmbracosInterferingHotKeys() {
