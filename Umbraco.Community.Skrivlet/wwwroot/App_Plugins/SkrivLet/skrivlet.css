@@ -1,32 +1,56 @@
 .skriv-let {
+    position: relative;
     background-color: white;
+    max-width: 920px;
+    margin: 0 auto;
 }
 
 .skriv-let.cdx-search-field__input {
     width: auto;
 }
 
-.ce-block__content,
-.ce-toolbar__content {
-    max-width: 800px;
+.ce-popover__container {
+    width: 250px;
 }
 
-.ce-block__content {
-    padding: 0 30px;
-}
-
-/* Keep the toolbar on the left */
 @media (min-width: 651px) {
-    .codex-editor--narrow .ce-toolbar__actions {
-        right: 100%;
+    .ce-block__content {
+        max-width: calc(100% - 120px) !important;
+        margin: 0 60px;
     }
-    .codex-editor--narrow .codex-editor__redactor {
-        margin-right: 0;
+}
+
+@media (min-width: 651px) {
+    .ce-toolbar__content {
+        width: 0px !important;
+        margin: 0 50px;
+    }
+}
+
+.cdx-block {
+    max-width: 100% !important;
+}
+
+@media (min-width: 651px) {
+    .codex-editor--narrow .ce-toolbox .ce-popover {
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (min-width: 651px) {
+    .codex-editor--narrow .ce-settings .ce-popover {
+        right: 0;
+        left: 0;
     }
 }
 
 .ce-popover {
     width: auto !important;
+}
+
+.ce-popover--inline .ce-popover--nested .ce-popover__container {
+    width: 250px;
 }
 
     .skriv-let-data {
@@ -38,6 +62,15 @@
     font-weight: 700;
 }
 
+.ce-paragraph,
+.cdx-list__item,
+.cdx-quote__text,
+.cdx-checklist__item-text,
+.embed-tool__caption {
+    font-size: 1.0675rem;
+    line-height: 1.5;
+}
+
 /* Image */
 .simple-image {
     padding: 20px 0;
@@ -45,6 +78,7 @@
 
 .simple-image img {
     scroll-margin-top: 20px;
+    cursor: pointer;
 }
 
 .simple-image input,
@@ -56,7 +90,7 @@
     box-sizing: border-box;
     border-radius: 3px;
     outline: none;
-    font-size: 15px;
+    font-size: 1.125rem;
     height: auto;
 }
 
@@ -82,4 +116,65 @@
     display: block;
     max-width: 60%;
     margin: 0 auto 15px;
+}
+
+/* Fullscreen */
+
+.skriv-let__fullscreen-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    color: #1d202b;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 7px;
+}
+
+@media (max-width: 650px) {
+    .skriv-let__fullscreen-button {
+        background-color: #fff;
+        border: 1px solid #E8E8EB;
+    }
+}
+
+.skriv-let__fullscreen-button:hover {
+    background-color: #eff2f5;
+}
+
+.skriv-let__container:fullscreen {
+    background-color: white;
+    color: #242424;
+    line-height: 1.5;
+    padding: 20px;
+    height: 100dvh;
+    overflow-y: scroll;
+}
+
+.skriv-let__container:fullscreen .codex-editor {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* Hide elements that won't work in fullscreen */
+.skriv-let__container:fullscreen .skriv-let__add-image-button,
+.skriv-let__container:fullscreen .ce-popover-item[data-item-name="image"],
+.skriv-let__container:fullscreen .ce-popover-item-html[data-item-name="link"] {
+    display: none;
+}
+
+.skriv-let__container:fullscreen .ce-paragraph,
+.skriv-let__container:fullscreen .cdx-list__item,
+.skriv-let__container:fullscreen .cdx-quote__text,
+.skriv-let__container:fullscreen .cdx-checklist__item-text,
+.skriv-let__container:fullscreen .embed-tool__caption {
+    font-size: 1.25rem;
 }

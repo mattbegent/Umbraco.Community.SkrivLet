@@ -175,6 +175,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             this.button = document.createElement('button');
             this.button.type = 'button';
             this.button.classList.add('umb-group-builder__group-add-property');
+            this.button.classList.add('skriv-let__add-image-button');
             this.button.textContent = this.data && this.data.url ? "Change image" : "Select an image";
             this.button.addEventListener('click', () => {
                 this._openMediaPicker();
@@ -243,6 +244,13 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             };
         }
 
+        validate(savedData) {
+            if(!savedData.url.trim() || !savedData.udi.trim()) {
+                return false;
+            }
+            return true;
+        }
+
     }
 
     class EmbedWithUI extends Embed {
@@ -279,15 +287,35 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         validate(savedData) {
           return savedData.service && savedData.source ? true : false;
         }
-      }
+
+    }
+
+    $scope.model.editorId = 'skrivlet-editor-' + RenderHelper.randomUUID();
+
+    function getInitialData() {
+        var initialData = {};
+        // Sometimes Umbraco returns a string (e.g. block grid), sometimes an object
+        if(!$scope.model.value) {
+            initialData = {};
+        } else if (typeof $scope.model.value === 'string') {
+            try {
+                initialData = JSON.parse($scope.model.value);
+            } catch (e) {
+                console.error('Error parsing SkrivLet initial data JSON:', e);
+            }
+        } else {
+            initialData = $scope.model.value ? $scope.model.value : {};
+        }
+        return initialData;
+    }
 
     const editor = new EditorJS({
 
-        holder: 'editorjs',
+        holder: $scope.model.editorId,
 
         placeholder: "Type '/' to insert a block or just start typing something super...",
 
-        data: $scope.model.value ? $scope.model.value : {},
+        data: getInitialData(),
 
         inlineToolbar: true,
 
@@ -297,6 +325,9 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         },
 
         tools: {
+            header: Header,
+            image: UmbracoImageTool,
+            quote: Quote,
             embed: {
                 class: EmbedWithUI,
                 config: {
@@ -306,9 +337,6 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                     }
                 }
             },
-            header: Header,
-            image: UmbracoImageTool,
-            quote: Quote,
             code: CodeTool,
             raw: RawTool,
             list: {
@@ -336,9 +364,17 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
     });
 
+    $scope.openFullscreen = function() {
+        if (!document.fullscreenElement) {
+            document.getElementById($scope.model.editorId).requestFullscreen();
+        } else if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    };
+
     // See: https://github.com/umbraco/Umbraco-CMS/pull/7186/files
     function stopUmbracosInterferingHotKeys() {
-        const editableElements = document.querySelectorAll('.cdx-block:not([disable-hotkeys="true"])');
+        const editableElements = document.querySelectorAll('.cdx-block:not([disable-hotkeys="true"]),.ce-header:not([disable-hotkeys="true"]),.cdx-input:not([disable-hotkeys="true"]),.cdx-checklist__item-text:not([disable-hotkeys="true"])');
         for (let index = 0; index < editableElements.length; index++) {
             const element = editableElements[index];
             element.setAttribute('disable-hotkeys', 'true');
