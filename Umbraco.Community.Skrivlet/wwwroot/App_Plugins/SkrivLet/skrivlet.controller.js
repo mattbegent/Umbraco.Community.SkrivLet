@@ -354,7 +354,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
             holder: $scope.model.editorId,
 
-            placeholder: "Type '/' to insert a block or just start typing something super...",
+            placeholder: $scope.model.config.placeholder,
 
             data: initData,
 
@@ -410,6 +410,10 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
     }
 
     function dataIsDifferentFromLocalStorage() {
+
+        if($scope.model.config.enableRecoverDocument === "0") {
+            return false;
+        }
 
         const modelValue = $scope.model.value;
         const storedData = getFromLocalStorage();

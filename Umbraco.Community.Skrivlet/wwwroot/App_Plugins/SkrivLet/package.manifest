@@ -2,7 +2,7 @@
     "propertyEditors": [
         {
             "alias": "skrivLet",
-            "name": "SkrivLet", 
+            "name": "SkrivLet",
             "icon": "icon-notepad",
             "group": "Rich Content",
             "editor": {
@@ -10,6 +10,40 @@
                 "supportsReadOnly": true,
                 "hideLabel": true,
                 "valueType": "JSON"
+            },
+            "prevalues": {
+                "fields": [
+                    {
+                        "label": "Placeholder",
+                        "description": "The placeholder for empty text.",
+                        "key": "placeholder",
+                        "view": "textstring"
+                    },
+                    {
+                        "label": "Enable Fullscreen",
+                        "description": "Enable ability for users to write in a full screen mode.",
+                        "key": "enableFullscreen",
+                        "view": "boolean"
+                    },
+                    {
+                        "label": "Enable Document Recovery",
+                        "description": "If enabled when a the user leaves the page without saving to Umbraco and comes back they will be prompted if they want to recover their document.",
+                        "key": "enableRecoverDocument",
+                        "view": "boolean"
+                    },
+                    {
+                        "label": "Enable Debug",
+                        "description": "Enable debug mode to display a JSON object of the data underneath SkrivLet.",
+                        "key": "enableDebug",
+                        "view": "boolean"
+                    }
+                ]
+            },
+            "defaultConfig": {
+                "placeholder": "Type '/' to insert a block or just start typing something super...",
+                "enableFullscreen": "1",
+                "enableRecoverDocument": "1",
+                "enableDebug": "0"
             }
         }
     ],
