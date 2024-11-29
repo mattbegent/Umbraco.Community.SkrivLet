@@ -1,4 +1,4 @@
-angular.module('umbraco').controller('SkrivLetController', function ($scope, editorService, editorState, overlayService, eventsService) {
+angular.module('umbraco').controller('SkrivLetController', function ($scope, editorService, overlayService, eventsService) {
 
     class RenderHelper {
 
@@ -291,6 +291,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
     }
 
     $scope.model.editorId = 'skrivlet-editor-' + RenderHelper.randomUUID();
+    $scope.model.isSaved = true;
 
     function getInitialData() {
         var initialData = {};
@@ -315,7 +316,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
     function init() {
         if(dataIsDifferentFromLocalStorage()) {
             var options = {
-                title: 'You have content that has not been saved',
+                title: `You have content that has not been saved for '${$scope.model.label}'`,
                 content: 'Do you want to load the last unsaved content?',
                 disableBackdropClick: true,
                 disableEscKey: true,
@@ -324,10 +325,12 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
                     initData = getFromLocalStorage();
                     loadEditorJS();
                     overlayService.close();
+                    $scope.model.isSaved = false;
                 },
                 close: function () {
                     loadEditorJS();
                     overlayService.close();
+                    $scope.model.isSaved = true;
                 }
             };
             overlayService.confirm(options);
@@ -338,6 +341,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
         eventsService.on('content.saved', function (evt, data) {
             console.log('save');
             console.log(data.content);
+            $scope.model.isSaved = true;
             clearLocalStorage();
         })
     }
@@ -348,7 +352,7 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
 
         editor = new EditorJS({
 
-            holder: 'editorjs',
+            holder: $scope.model.editorId,
 
             placeholder: "Type '/' to insert a block or just start typing something super...",
 
@@ -385,11 +389,11 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
             },
 
             onChange: (api, event) => {
-                console.log('On change');
                 stopUmbracosInterferingHotKeys();
                 editor.save().then((outputData) => {
                     const jsonData = JSON.stringify(outputData);
                     $scope.model.value = jsonData;
+                    $scope.model.isSaved = false;
                     saveToLocalStorage(jsonData);
                 }).catch((error) => {
                     console.log('Saving failed: ', error);
@@ -424,14 +428,14 @@ angular.module('umbraco').controller('SkrivLetController', function ($scope, edi
     }
 
     function getStorageKey() {
-        return 'Skrivlet.Block.' + editorState.current.id;
+        return 'SkrivLet.Block.' + $scope.model.id + '.' + $scope.model.alias;
     }
 
     function saveToLocalStorage(data) {
         try {
             localStorage.setItem(getStorageKey(), data);
         } catch (e) {
-            console.log('Failed to save data to local storage', e);
+            console.log('SkrivLet failed to save data to local storage', e);
         }
     }
 
