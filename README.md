@@ -1,3 +1,5 @@
+## This repo has moved to https://github.com/Gibe/Umbraco.Community.Skrivlet
+
 # SkrivLet
 
 > SkrivLet /skriːˀv let/ - Danish for Write Easily 
